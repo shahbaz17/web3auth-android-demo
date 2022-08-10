@@ -10,10 +10,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.web3auth.core.Web3Auth
-import com.web3auth.core.types.LoginParams
-import com.web3auth.core.types.Provider
-import com.web3auth.core.types.Web3AuthOptions
-import com.web3auth.core.types.Web3AuthResponse
+import com.web3auth.core.types.*
 import java8.util.concurrent.CompletableFuture
 
 
@@ -27,16 +24,38 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+//      Web3Auth Login without Whitelabel
+//
+//        web3Auth = Web3Auth(
+//            Web3AuthOptions(
+//                context = this,
+//                clientId = getString(R.string.web3auth_project_id),
+//                network = Web3Auth.Network.TESTNET,
+//                redirectUrl = Uri.parse("com.sbz.web3authdemoapp://auth")
+//            )
+//        )
+//
+//        // Handle user signing in when app is not alive
+//        web3Auth.setResultUrl(intent?.data)
+
+//      Web3Auth Whitelabel
         web3Auth = Web3Auth(
             Web3AuthOptions(
                 context = this,
-                clientId = getString(R.string.web3auth_project_id),
-                network = Web3Auth.Network.TESTNET,
-                redirectUrl = Uri.parse("com.sbz.web3authdemoapp://auth")
+                clientId = getString(R.string.web3auth_project_id), // pass over your Web3Auth Client ID from Developer Dashboard
+                network = Web3Auth.Network.TESTNET, // pass over the network you want to use (MAINNET or TESTNET or CYAN)
+                redirectUrl = Uri.parse("com.sbz.web3authdemoapp://auth"), // your app's redirect URL
+                // Optional parameters
+                whiteLabel = WhiteLabelData(
+                    "Web3Auth Whitelabel App", null, null, "en", true,
+                    hashMapOf(
+                        "primary" to "#123456"
+                    )
+                )
             )
         )
 
-        // Handle user signing in when app is not alive
+// Handle user signing in when app is not alive
         web3Auth.setResultUrl(intent?.data)
 
         // Setup UI and event handlers
