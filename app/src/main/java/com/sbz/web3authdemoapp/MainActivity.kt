@@ -28,7 +28,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         web3Auth = Web3Auth(
-            Web3AuthOptions(context = this,
+            Web3AuthOptions(
+                context = this,
                 clientId = getString(R.string.web3auth_project_id),
                 network = Web3Auth.Network.TESTNET,
                 redirectUrl = Uri.parse("com.sbz.web3authdemoapp://auth")
