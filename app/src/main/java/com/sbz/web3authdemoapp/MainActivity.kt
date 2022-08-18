@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
                 whiteLabel = WhiteLabelData(
                     "Web3Auth Whitelabel App", null, null, "en", true,
                     hashMapOf(
-                        "primary" to "#123456"
+                        "primary" to "#229954"
                     )
                 )
             )
