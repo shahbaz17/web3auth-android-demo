@@ -10,15 +10,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputLayout
 import com.google.gson.Gson
 import com.web3auth.core.Web3Auth
-<<<<<<< Updated upstream
 import com.web3auth.core.types.LoginParams
 import com.web3auth.core.types.Provider
 import com.web3auth.core.types.Web3AuthOptions
 import com.web3auth.core.types.Web3AuthResponse
-=======
 import com.web3auth.core.isEmailValid
 import com.web3auth.core.types.*
->>>>>>> Stashed changes
 import java8.util.concurrent.CompletableFuture
 
 
@@ -52,18 +49,18 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-<<<<<<< Updated upstream
-        web3Auth = Web3Auth(
-            Web3AuthOptions(
-                context = this,
-                clientId = getString(R.string.web3auth_project_id),
-                network = Web3Auth.Network.TESTNET,
-                redirectUrl = Uri.parse("com.sbz.web3authdemoapp://auth")
-            )
-        )
+
+//        web3Auth = Web3Auth(
+//            Web3AuthOptions(
+//                context = this,
+//                clientId = getString(R.string.web3auth_project_id),
+//                network = Web3Auth.Network.TESTNET,
+//                redirectUrl = Uri.parse("com.sbz.web3authdemoapp://auth")
+//            )
+//        )
 
         // Handle user signing in when app is not alive
-=======
+
 //      Web3Auth Login without Whitelabel
 
 //        web3Auth = Web3Auth(
@@ -121,7 +118,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 //        )
 
 // Handle user signing in when app is not alive
->>>>>>> Stashed changes
+
         web3Auth.setResultUrl(intent?.data)
 
         // Setup UI and event handlers
